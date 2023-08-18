@@ -19,17 +19,20 @@
         rippleEffect.style.top = `${y}px`;
         this.appendChild(rippleEffect);
 
-        fetch('/Home/GetData')
-            .then(response => response.text())
-            .then(data => {
+        $.ajax({
+            url: '/Home/GetData',
+            method: 'GET',
+            dataType: 'text',
+            success: function (data) {
                 table.innerHTML = data; // Replace table content with fetched data
                 loadingSpinner.style.display = 'none'; // Hide the loading spinner
-            })
-            .catch(error => {
+            },
+            error: function (error) {
                 console.error('Error:', error);
                 table.innerHTML = '<tr><td colspan="4">Error loading data.</td></tr>'; // Display an error message in the table
                 loadingSpinner.style.display = 'none'; // Hide the loading spinner in case of error
-            });
+            }
+        });
     });
 });
 
