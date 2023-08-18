@@ -1,0 +1,23 @@
+﻿@using AllariTest.Models
+@model List<Character>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Species</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var character in Model)
+        {
+            <tr>
+                <td>@character.Id</td>
+                <td>@character.Name</td>
+                <td>@character.Status</td>
+                <td>@character.Species</td>
+            </tr>
+        }
+    </tbody>
+</table>

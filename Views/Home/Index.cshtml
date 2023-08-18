@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<main class="container main-content">
+    <div class="row">
+        <div class="col-md-3 content-left d-flex align-items-center justify-content-center">
+            <div class="text-center">
+                <div id="mousePositionX"></div>
+                <div id="mousePositionY"></div>
+            </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <div class="table-responsive" style="max-height: 525px; overflow-y: scroll;">
+                <div class="ripple-container">
+                    <button id="getDataButton" class="ripple-button">Get Data</button>
+                    <div class="ripple-effect"></div>
+                </div>
+                <div class="loading-spinner" style="display: none;"></div>
+                @Html.Partial("~/Views/Home/Character/_CharacterTable.cshtml")
+            </div>
+            <br>
+            <hr>
+            <div>
+                The project resulted in an interactive and responsive web application that displays data from the "Rick and Morty" API. 
+                Concepts of dependency injection, service organization, and data manipulation were employed to create a pleasant user experience. 
+                The application offers a visually appealing homepage with features such as a data table, image carousel, and display of mouse coordinates.
+            </div>
+        </div>
+        <div class="col-md-3 content-right d-flex align-items-center justify-content-center">
+            <div id="carouselExample" class="carousel slide carousel-right">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="~/Content/Images/landscape1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Content/Images/landscape2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="~/Content/Images/landscape3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+@section scripts{
+    <script src="~/Scripts/Home/home.js"></script>
+}

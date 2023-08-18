@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Allari Test</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <div class="container">
+            @Html.Partial("~/Views/Home/Clock/_ClockPartial.cshtml")
+        </div>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
+            <h5 style="color: white;">Marco Antônio Grison</h5>
+        </nav>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <footer class="text-center py-4">
+        <h4><a href="https://allari.com" class="text-decoration-none text-muted">Allari</a></h4>
+    </footer>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
