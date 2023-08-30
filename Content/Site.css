@@ -35,6 +35,7 @@ body {
 
 .main-content {
     flex: 1;
+    height: calc(185vh - 100px) !important;
 }
 
 footer {
