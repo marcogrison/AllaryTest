@@ -21,13 +21,21 @@ namespace AllariTest
 
         public async Task<List<Character>> GetCharactersAsync()
         {
-            var response = await _httpClient.GetAsync("https://rickandmortyapi.com/api/character");
-            if (response.IsSuccessStatusCode)
+            try
             {
-                var json = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.DeserializeObject<CharacterResponse>(json);
-                return result.Results;
+                var response = await _httpClient.GetAsync("https://rickandmortyapi.com/api/character");
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var result = JsonConvert.DeserializeObject<CharacterResponse>(json);
+                    return result.Results;
+                }
             }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+           
             return null;
         }
     }
