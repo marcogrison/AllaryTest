@@ -24,19 +24,22 @@ namespace AllariTest
             try
             {
                 var response = await _httpClient.GetAsync("https://rickandmortyapi.com/api/character");
+
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
                     var result = JsonConvert.DeserializeObject<CharacterResponse>(json);
                     return result.Results;
                 }
+                else
+                {
+                    throw new Exception($"Request error: {response.StatusCode}");
+                }
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-           
-            return null;
         }
     }
 }
